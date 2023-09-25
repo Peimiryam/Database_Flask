@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>"Balance"</title>
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    </head>
+    <body>
+        <div class= "container" >
+            <div class= "columns">
+                <div class= "column col-12 text-center" style="border: 1px solid black;">
+                    <img src="https://img.freepik.com/free-vector/warehouse-interior-with-cardboard-boxes-racks_107791-1633.jpg?w=1380&t=st=1692549488~exp=1692550088~hmac=cdee1bb0b68ef944768dbf4107147a282a6799e2d19cdda376fa3632f1917b20"width="1400" 
+                    height="500">
+                    <h1>Add or subtract from balance</h1>
+                </div>
+
+            {% for msg in get_flashed_messages() %}
+            <h2>{{ msg }} </h2>
+            {% endfor %}
+            
+            <div class="column col-10 p-centered">
+                <div class="columns">
+                    <div class="column col-2">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000"><button class="btn btn-lg">Main Page</button></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#"><button class="btn btn-lg">Balance</button></a>
+                                <div class = "column col-10 pt-centered mt-2">
+                                <p> Input the quantity you want to add or subtract: </p>
+                                    <h1>Balance</h1>
+                                    <form action="http://127.0.0.1:5000/Balance" method="post">
+                                        <form onsubmit="return false;">
+                                        <input class="result" type="number" name = money id="money" value=0 required minlength="1"/>
+                                        <button onClick="valInc()">Add</button>
+                                        <button onClick="valDec()">Subtract</button>
+                                        </form>
+                                    </form>
+                                </div> 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

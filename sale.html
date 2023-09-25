@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>"Sale"</title>
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    </head>
+    <body>
+        <div class= "container" >
+            <div class= "columns">
+                <div class= "column col-12 text-center" style="border: 1px solid black;">
+                    <img src="https://img.freepik.com/free-vector/warehouse-interior-with-cardboard-boxes-racks_107791-1633.jpg?w=1380&t=st=1692549488~exp=1692550088~hmac=cdee1bb0b68ef944768dbf4107147a282a6799e2d19cdda376fa3632f1917b20"width="1400" 
+                    height="500">
+                    <h1>Sell Products</h1>
+                </div>
+
+            {% for msg in get_flashed_messages() %}
+            <h2>{{ msg }} </h2>
+            {% endfor %}
+            
+            <div class="column col-10 p-centered">
+                <div class="columns">
+                    <div class="column col-2">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000"><button class="btn btn-lg">Main Page</button></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/Sale"><button class="btn btn-lg">Sale</button></a>
+                                <div class = "column col-10 col-mr-auto"></div>
+                                <div class = "column col-10 pt-centered mt-2"></div>
+                                <div class="form-group">
+                                    <form action="http://127.0.0.1:5000/Sale" method="post">
+                                        <form onsubmit="return false;">
+                                        <label class="form-label" for="input1">Product Name</label>
+                                        <input class="form-input" type="text" id="input1" name = saleproductname placeholder="Productname" required minlength="1">
+                                        <label class="form-label" for="input2">Quantity</label>
+                                        <input class="form-input" type="number" id="input2" name = salequantity placeholder="Quantity" id="fnumber" required minlength="1">
+                                        <label class="form-label" for="input3">Unit Price</label>
+                                        <input class="form-input" type="number" id="input3" name = saleprice placeholder="Unit Price" id="fnumber" required minlength="1">
+                                        <input class="form-input" type="submit">
+                                    </form>
+                                        </form>
+                                        <script>
+                                            var fname = document.getElementById("ProductName");
+                                            fname.addEventListener("input1", () => {
+                                              if (fname.validity.valueMissing) {
+                                                fname.setCustomValidity("Value must be at least 1 character.");
+                                                fname.reportValidity();
+                                              } else { fname.setCustomValidity(""); }
+                                            });
+                                            </script>
+                                </div>
+                            </div>   
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
