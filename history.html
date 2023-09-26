@@ -51,5 +51,11 @@
                 </div>
             </div>
         </div>
+
+        <div>
+            {% for hist in history_entries %}
+            <p>{{ hist.get_str }}</p>
+            {% endfor %}
+        </div>   
     </body>
 </html>
